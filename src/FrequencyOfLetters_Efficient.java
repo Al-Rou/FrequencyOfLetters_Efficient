@@ -40,7 +40,7 @@ public class FrequencyOfLetters_Efficient {
             //The result is printed out in 26 rows
             for(int i = 0; i < arrayCounter; i++)
             {
-                System.out.println(letter[i][0] + " -> " + letter[i][1] + " times");
+                System.out.println((char)letter[i][0] + " -> " + letter[i][1] + " times");
             }
         }
 }
