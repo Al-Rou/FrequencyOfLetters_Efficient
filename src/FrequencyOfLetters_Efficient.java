@@ -18,7 +18,7 @@ public class FrequencyOfLetters_Efficient {
             //This is simply a counter
             int frequency = 0;
             //This shows the highest frequency of a letter inside the entered sentence
-            int maxFrequency = 0;
+            //int maxFrequency = 0;
             //The outer loop goes for all letters in English
             for(int i = 0; i < 26; i++)
             {
@@ -31,37 +31,16 @@ public class FrequencyOfLetters_Efficient {
                         frequency++;
                     }
                 }
-                //The counted number and its associated letter are saved as maxFrequency and
-                //letter respectively, only if it is higher than the
-                //previous maxFrequency
-                if(frequency > maxFrequency)
-                {
-                    maxFrequency = frequency;
-                    frequency = 0;
-                    letter[arrayCounter] = (char) (auxiliary+i);
-                    arrayCounter++;
-                }
-                //In case more than one letter has been repeated with the highest frequency
-                else if((frequency == maxFrequency) && ((maxFrequency > 0)))
-                {
-                    frequency = 0;
-                    letter[arrayCounter] = (char) (auxiliary+i);
-                    arrayCounter++;
-                }
-                else
-                {
-                    //If not bigger than the max, its value simply vanishes!
-                    frequency = 0;
-                }
+                //The counted number and its associated letter are saved in the two-dimension array
+                letter[arrayCounter][0] = (auxiliary+i);
+                letter[arrayCounter][1] = frequency;
+                arrayCounter++;
+                frequency = 0;
             }
-            System.out.print("The letter(s) ");
-            for(int i = 0; i < arrayCounter-1; i++)
+            //The result is printed out in 26 rows
+            for(int i = 0; i < arrayCounter; i++)
             {
-                System.out.print(letter[i] + ", ");
+                System.out.println(letter[i][0] + " -> " + letter[i][1] + " times");
             }
-            System.out.print(letter[arrayCounter-1]);
-            System.out.print(" has/have been repeated (regardless of being small or capital) "
-                    +maxFrequency+" times," +
-                    " which is the maximum in this entered sentence!");
         }
 }
